@@ -1,0 +1,32 @@
+.navbar-holder{
+
+}
+
+.navbar-header{
+
+}
+
+.navbar{
+    text-align:center;
+}
+nav {
+    background-color: var(--primary-color);
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+    nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: bold;
+    }
