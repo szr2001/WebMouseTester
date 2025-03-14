@@ -1,8 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Mandali&display=swap');
 :root {
     --primary-color: #17153B;
+    --primary-color-rgb: 23, 21, 59;
     --secondary-color: #2E236C;
+    --secondary-color-rgb: 46, 35, 108;
     --text-color: #C8ACD6;
+    --text-color-rgb: 200, 172, 214;
     --background-color: #433D8B;
-    margin: 0;
-    padding: 0;
+    --background-color-rgb: 67, 61, 139;
+    --primary-font: 'Kosugi Maru', sans-serif;
+    background-color: var(--primary-color);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body{
+    margin:0;
+    padding:0;
 }

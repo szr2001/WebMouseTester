@@ -1,0 +1,38 @@
+.footer {
+    background: var(--background-color);
+    border-radius: 20px 20px 0px 0px;
+    padding: 5px;
+
+    position:absolute;
+    bottom:0px;
+    width:100%;
+}
+
+.footer-desc {
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    text-align:center;
+    padding:2px;
+    margin:0px;
+    font-size:20px;
+}
+
+.footer-links {
+    font-family: var(--primary-font);
+    color: var(--text-color);
+    display:flex;
+    gap:40px;
+    justify-content:center;
+}
+
+.footer-link {
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: underline;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+.footer-link:hover {
+    transform: rotate(5deg);
+    font-weight:bold;
+}

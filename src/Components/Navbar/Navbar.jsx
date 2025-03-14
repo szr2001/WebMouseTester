@@ -1,20 +1,31 @@
 import './Navbar.css'
-
+import settingsImg from '../../assets/settings.png'
 function Navbar() {
   return (
       <div className="navbar-holder">
-          <header>
-              <h1 className="navbar-header">RoberTools</h1>
+          <header className="navbar-header">
+              <h1 className="navbar-header-p">RoberTools</h1>
+              <img title="icon" src={settingsImg} className="navbar-img"></img>
           </header>
 
-          <nav className="navbar">
-              <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">History</a></li>
-                  <li><a href="#">Legends</a></li>
-                  <li><a href="#">Gallery</a></li>
-              </ul>
-          </nav>
+          <div className="navbar">
+
+              <div className="holographic-container">
+                  <div className="holographic-card">
+                      <a className="navbar-option">Mouse Tester</a>
+                  </div>
+              </div>
+              <div className="holographic-container navbar-option-disabled">
+                  <div className="holographic-card">
+                      <a className="navbar-option navbar-option-disabled">Keyboard Tester</a>
+                  </div>
+              </div>
+              <div className="holographic-container navbar-option-disabled">
+                  <div className="holographic-card">
+                      <a className="navbar-option navbar-option-disabled">Controller Tester</a>
+                  </div>
+              </div>
+          </div>
       </div>
   );
 }

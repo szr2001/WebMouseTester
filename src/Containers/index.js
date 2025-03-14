@@ -1,1 +1,1 @@
-export { default as MouseTest } from './MouseTest/MouseTest.jsx'
+export { default as MouseTester } from './MouseTester/MouseTester.jsx'
