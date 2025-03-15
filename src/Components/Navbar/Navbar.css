@@ -1,5 +1,6 @@
 .navbar-holder{
     text-align:center;
+
 }
 
 .navbar-img{
@@ -9,15 +10,14 @@
 }
 
 .navbar-header {
-    background-image: linear-gradient( to right, rgb(var(--background-color-rgb),1) 0%, rgb(var(--background-color-rgb),1) 10%, rgb(var(--secondary-color-rgb),1) 30%, rgb(var(--secondary-color-rgb),1) 70%, rgb(var(--background-color-rgb),1) 90%, rgb(var(--background-color-rgb),1) 100% );
+    background-color: var(--secondary-color);
     font-family: var(--primary-font);
     color: var(--text-color);
     font-size: 15px;
     margin: 0px;
-    padding:0px;
+    box-shadow: 0 0 20px rgb(var(--background-color-rgb),0.5);
+    padding: 0px;
     display: flex;
-    border-radius:0px 0px 20px 20px;
-    justify-content: center;
 }
 .navbar-header-p {
     margin: 10px;

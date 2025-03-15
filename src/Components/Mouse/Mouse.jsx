@@ -1,16 +1,26 @@
 import './Mouse.css'
 import React, { useEffect, useState } from "react";
 import mouseImg from '../../assets/mouse.png'
+
 function Mouse() {
-    const [count, setCount] = useState(0);
-  return (
-      <div className="mouse-holder">
+
+    const [leftClicks, setLeftClicks] = useState(0);
+    const [leftDoubleClicks, setLeftDoubleClicks] = useState(0);
+
+    const handleClick = (event) => {
+        event.preventDefault();
+        console.log(event.button);
+    };
+
+    return (
+        <div className="mouse-holder" onMouseDown = {handleClick}>
           <img className="mouse-img" src={mouseImg}/>
-            <svg height="260" width="500">
-              <polygon id="leftClick" points="57,303,130,228,129,33,58,80" fill="lime"/>
-              <polygon id="rightClick" points="257,33,330,79,330,304,258,232" fill="lime" />
-              <polygon id="thumb1Click" points="25,228,42,228,42,179,25,180" fill="lime" />
-              <polygon id="middleClick" points="161,239,224,239,224,265,160,265" fill="lime" />
+            <svg className="mouse-overlay" height="500" width="500">
+                <polygon className="mouse-button" id="leftClick" points="57,303,130,231,129,33,58,80"/>
+                <polygon className="mouse-error" id="rightClick" points="257,33,330,79,330,304,257,232"/>
+                <polygon className="mouse-success" id="thumb1Click" points="24,228,42,228,42,179,25,179"/>
+                <polygon className="mouse-button" id="middleClick" points="160,237,226,237,226,266,160,266"/>
+                <polygon className="mouse-button" id="thumb2Click" points="41,324,42,273,24,274,24,324"/>
           </svg> 
       </div>
   );
