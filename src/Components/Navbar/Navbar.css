@@ -18,11 +18,16 @@
     box-shadow: 0 0 20px rgb(var(--background-color-rgb),0.5);
     padding: 0px;
     display: flex;
+    position: fixed;
+    z-index:1;
+    top:0px;
+    width:100%;
 }
 .navbar-header-p {
     margin: 10px;
 }
 .navbar {
+    margin:50px 0px 0px 0px;
     display: flex;
     justify-content: center;
     text-align: center;

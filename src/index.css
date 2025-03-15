@@ -2,7 +2,6 @@
 :root {
     --success-color: #5be524;
     --error-color: #e53424;
-
     --primary-color: #17153B;
     --primary-color-rgb: 23, 21, 59;
     --secondary-color: #2E236C;
@@ -17,7 +16,7 @@
     scrollbar-width: none;
 }
 
-body{
-    margin:0;
-    padding:0;
+body {
+    margin: 0px;
+    padding: 0px;
 }

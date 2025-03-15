@@ -1,3 +1,23 @@
-p {
+.section-holder{
+    background-color: var(--secondary-color);
+    padding: 20px;
+    margin: 15px;
+    border-radius: 25px;
+}
+
+.section-title {
+    font-family: var(--primary-font);
+    padding: 5px;
+    text-shadow: 4px 4px rgb(128, 128, 128, 0.5);
+    margin: 5px;
+    color: var(--text-color);
+}
+
+.section-desc {
+    font-family: var(--primary-font);
+    padding: 5px;
+    font-size:20px;
+    line-height:30px;
+    margin: 5px;
     color: var(--text-color);
 }

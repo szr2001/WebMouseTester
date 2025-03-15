@@ -1,8 +1,11 @@
 import './Section.css'
 
-function Section() {
+function Section({title, desc}) {
   return (
-      <p>Section</p>
+      <div className="section-holder">
+          <h1 className="section-title">{title}</h1>
+          <p className="section-desc">{desc}</p>
+      </div>
   );
 }
 
