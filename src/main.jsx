@@ -8,8 +8,8 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Navbar />
     <Mouse />
-    <Section title="What is a mouse test?" desc="A mouse test is meant to test the device for problems like double click and rabbies, it also works on solar power and drugs" />
-        <Section title="What are we here?" desc="Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer," />
+        <Section title="What is a mouse test?" desc={["A mouse test is meant to test the device for problems like double click and rabies. It also works on solar power and drugs.", "It's also the thing you hold in your hand right now :D "]}/>
+        <Section title="Why are we here?" desc="Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer,Just to suffer," />
     <Footer />
   </StrictMode>,
 )
