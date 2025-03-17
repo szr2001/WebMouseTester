@@ -1,4 +1,5 @@
 export { default as Footer } from './Footer/Footer.jsx'
 export { default as Navbar } from './Navbar/Navbar.jsx'
 export { default as Section } from './Section/Section.jsx'
-export { default as Mouse } from './Mouse/Mouse.jsx'
+export { default as MouseProfiler } from './MouseProfiler/MouseProfiler.jsx'
+export { default as ErrorsCounter } from './ErrorsCounter/ErrorsCounter.jsx'

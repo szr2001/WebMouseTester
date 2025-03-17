@@ -1,0 +1,26 @@
+.count {
+    color: var(--text-color);
+    font-size: 15px;
+    padding: 0px;
+    margin: 0px 8px 5px 8px;
+    text-align: center;
+    padding: 0px;
+}
+
+.error-count {
+    font-size: 0px !important;
+    margin: 0px;
+}
+
+.error-count-active {
+    color: var(--error-color) !important;
+    margin: 0px 0px 0px 0px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.success-count {
+    color: var(--success-color) !important;
+    margin: 0px 0px 0px 0px;
+    font-size: 20px;
+    font-weight: bold;
+}
