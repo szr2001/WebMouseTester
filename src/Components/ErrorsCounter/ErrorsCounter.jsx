@@ -16,7 +16,7 @@ function ErrorsCounter({ normalCount, errorCount, className, maxNumberSpecified 
         <div className={className}>
             <p className={errorCount === 0 ? "count error-count" : "count error-count-active"}>{LimitCountSize(errorCount)}</p>
             <p className={normalCount != 0 &&
-                normalCount > maxNumberSpecified &&
+                normalCount >= maxNumberSpecified &&
                           errorCount === 0 ? "count success-count" : "count"}>{LimitCountSize(normalCount)}</p>
       </div>
   );

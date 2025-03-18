@@ -60,12 +60,6 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
     function checkDoubleClick(clickIndex) {
 
         let now = performance.now();
-        console.log(clickIndex);
-        console.log(now - leftClickTime);
-        console.log(now - rightClickTime);
-        console.log(now - middleClickTime);
-        console.log(now - thumb1ClickTime);
-        console.log(now - thumb2ClickTime);
         switch (clickIndex) {
             case 0:
                 let leftClickNow = now;

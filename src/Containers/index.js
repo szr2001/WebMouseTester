@@ -1,1 +1,1 @@
-export { default as MouseTesterPage } from './MouseTesterPage/MouseTesterPage.jsx'
+export { default as MouseTesterPage } from './MouseTesterPage/MouseTesterPage'
