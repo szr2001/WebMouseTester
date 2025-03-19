@@ -1,6 +1,6 @@
-import './Section.css'
+import './TextSection.css'
 
-function Section({ title, desc, children }) {
+function TextSection({ title, desc}) {
   return (
       <div className="section-holder">
           <h1 className="section-title">{title}</h1>
@@ -9,9 +9,8 @@ function Section({ title, desc, children }) {
             ) : (
                 <p className="section-desc">{desc}</p>
           )}
-          {children}
       </div>
   );
 }
 
-export default Section;
+export default TextSection;

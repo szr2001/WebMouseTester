@@ -1,2 +1,52 @@
-.mouse-test{
+.mouse-test {
+    display: flex;
+    margin:0px 50px 0px 50px;
+    justify-content:center;
+}
+
+.profiler-details {
+    display: flex;
+    justify-content:space-evenly;
+    flex-direction: column;
+}
+
+.profiler-detail {
+    box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    margin: 20px;
+    border-radius: 25px;
+}
+
+.profiler-result{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    margin:10px;
+    width:30px;
+    height:30px;
+    border-radius:60px;
+}
+
+.profiler-result-desc {
+    font-family: var(--primary-font);
+    padding: 5px;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 5px;
+    color: var(--text-color);
+}
+
+.profiler-result-undefined {
+    background-color:var(--primary-color);
+}
+
+.profiler-result-error {
+    background-color: var(--error-color);
+}
+
+.profiler-result-success {
+    background-color: var(--success-color);
 }
