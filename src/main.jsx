@@ -1,13 +1,10 @@
 import './index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { MouseTesterPage } from './Containers';
-import { Footer, Navbar } from './Components';
+import { App } from './Containers'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode> {/*remove in build*/}
-    <Navbar />
-    <MouseTesterPage />
-    <Footer />
+    <App/>
   </StrictMode>,
 )
