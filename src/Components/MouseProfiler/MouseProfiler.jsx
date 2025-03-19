@@ -6,7 +6,6 @@ import { ErrorsCounter } from '../../Components'
 let leftClickTime = 500;
 let rightClickTime = 500;
 let middleClickTime = 500;
-let mouseOver = false;
 function MouseProfiler({ maxCountSize, doubleClickInterval}) {
 
     const leftClickRef = useRef(null);
@@ -15,6 +14,7 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
 
     const scrollUpRef = useRef(null);
     const scrollDownRef = useRef(null);
+    const hasMounted = useRef(false);
 
     const initialState = {
         leftClicks: 0,
@@ -27,18 +27,19 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
 
     const mouseEnterProfiler = (event) => {
         window.addEventListener("wheel", handleWheel, { passive: false });
-        mouseOver = true;
     }
 
     const mouseLeavesProfiler = (event) => {
         window.removeEventListener("wheel", handleWheel);
-        mouseOver = false;
     }
 
     useEffect(() => {
+        if (hasMounted.current === true) {
             mouseEnterProfiler();
-        return () => {
-        };
+        }
+        else {
+            hasMounted.current = true;
+        }
     }, [initialState]);
 
     const handleWheel = (event) => {
@@ -75,6 +76,7 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
         }
     };
 
+    const [state, dispatch] = useReducer(reducer, initialState);
     function checkDoubleClick(clickIndex) {
         let now = performance.now();
         switch (clickIndex) {
@@ -132,7 +134,6 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
         mouseEnterProfiler();
     };
 
-    const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
         <div className="mouse-holder" onContextMenu={handleContextMenu}
