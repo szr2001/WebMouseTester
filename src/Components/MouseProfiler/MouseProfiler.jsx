@@ -47,12 +47,12 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
 
         if (event.deltaY < 0) {
             scrollUpRef.current.classList.add("mouse-success");
-            scrollUpRef.current.classList.add("mouse-success-accent");
-            setTimeout(() => scrollUpRef.current.classList.remove("mouse-success-accent"), 200);
+            scrollUpRef.current.classList.add("mouse-accent-success");
+            setTimeout(() => scrollUpRef.current.classList.remove("mouse-accent-success"), 200);
         } else {
             scrollDownRef.current.classList.add("mouse-success");
-            scrollDownRef.current.classList.add("mouse-success-accent");
-            setTimeout(() => scrollDownRef.current.classList.remove("mouse-success-accent"), 200);
+            scrollDownRef.current.classList.add("mouse-accent-success");
+            setTimeout(() => scrollDownRef.current.classList.remove("mouse-accent-success"), 200);
         }
     };
 
@@ -117,16 +117,23 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
                 dispatch({ type: "LEFT_CLICK" });
                 leftClickRef.current.classList.remove("mouse-button");
                 leftClickRef.current.classList.add(state.leftDoubleClicks > 0 ? "mouse-error" : "mouse-success");
+                leftClickRef.current.classList.add(state.leftDoubleClicks > 0 ? "mouse-accent-error" : "mouse-accent-success");
+                setTimeout(() => leftClickRef.current.classList.remove(state.leftDoubleClicks > 0 ? "mouse-accent-error" : "mouse-accent-success"), 200);
                 return;
             case 1:
                 dispatch({ type: "MIDDLE_CLICK" });
                 middleClickRef.current.classList.remove("mouse-button");
                 middleClickRef.current.classList.add(state.middleDoubleClicks > 0 ? "mouse-error" : "mouse-success");
+                middleClickRef.current.classList.add(state.middleDoubleClicks > 0 ? "mouse-accent-error" : "mouse-accent-success");
+                setTimeout(() => middleClickRef.current.classList.remove(state.middleDoubleClicks > 0 ? "mouse-accent-error" : "mouse-accent-success"), 200);
+
                 return;
             case 2:
                 dispatch({ type: "RIGHT_CLICK" });
                 rightClickRef.current.classList.remove("mouse-button");
                 rightClickRef.current.classList.add(state.rightDoubleClicks > 0 ? "mouse-error" : "mouse-success");
+                rightClickRef.current.classList.add(state.rightDoubleClicks > 0 ? "mouse-accent-error" : "mouse-accent-success");
+                setTimeout(() => rightClickRef.current.classList.remove(state.rightDoubleClicks > 0 ? "mouse-accent-error" : "mouse-accent-success"), 200);
                 return;
             default:
                 return console.log("Button not supported!");

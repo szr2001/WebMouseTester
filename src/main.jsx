@@ -5,9 +5,9 @@ import { MouseTesterPage } from './Containers';
 import { Footer, Navbar } from './Components';
 
 createRoot(document.getElementById('root')).render(
-  <> {/*remove in build*/}
+  <StrictMode> {/*remove in build*/}
     <Navbar />
     <MouseTesterPage />
     <Footer />
-  </>,
+  </StrictMode>,
 )

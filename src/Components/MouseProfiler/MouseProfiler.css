@@ -99,9 +99,12 @@
 .mouse-success {
     fill: var(--success-color);
 }
-.mouse-success-accent {
+.mouse-accent-success{
     fill: var(--success-accent-color);
 }
 .mouse-error {
     fill: var(--error-color);
+}
+.mouse-accent-error {
+    fill: var(--error-accent-color);
 }
