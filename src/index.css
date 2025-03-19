@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Mandali&display=swap');
 :root {
     --success-color: #5be524;
+    --success-accent-color: #49a126;
     --error-color: #e53424;
     --primary-color: #17153B;
     --primary-color-rgb: 23, 21, 59;

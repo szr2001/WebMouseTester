@@ -1,20 +1,20 @@
 import './MouseProfiler.css'
-import React, { useRef, useReducer } from "react"
+import React, { useEffect ,useRef, useReducer } from "react"
 import mouseImg from '../../assets/mouse.png'
 import { ErrorsCounter } from '../../Components'
 
 let leftClickTime = 500;
 let rightClickTime = 500;
 let middleClickTime = 500;
-let thumb1ClickTime = 500;
-let thumb2ClickTime = 500;
+let mouseOver = false;
 function MouseProfiler({ maxCountSize, doubleClickInterval}) {
 
     const leftClickRef = useRef(null);
     const rightClickRef = useRef(null);
     const middleClickRef = useRef(null);
-    const thumb1ClickRef = useRef(null);
-    const thumb2ClickRef = useRef(null);
+
+    const scrollUpRef = useRef(null);
+    const scrollDownRef = useRef(null);
 
     const initialState = {
         leftClicks: 0,
@@ -23,10 +23,36 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
         rightDoubleClicks: 0,
         middleClicks: 0,
         middleDoubleClicks: 0,
-        thumb1Clicks: 0,
-        thumb1DoubleClicks: 0,
-        thumb2Clicks: 0,
-        thumb2DoubleClicks: 0,  
+    };
+
+    const mouseEnterProfiler = (event) => {
+        window.addEventListener("wheel", handleWheel, { passive: false });
+        mouseOver = true;
+    }
+
+    const mouseLeavesProfiler = (event) => {
+        window.removeEventListener("wheel", handleWheel);
+        mouseOver = false;
+    }
+
+    useEffect(() => {
+            mouseEnterProfiler();
+        return () => {
+        };
+    }, [initialState]);
+
+    const handleWheel = (event) => {
+        event.preventDefault();
+
+        if (event.deltaY < 0) {
+            scrollUpRef.current.classList.add("mouse-success");
+            scrollUpRef.current.classList.add("mouse-success-accent");
+            setTimeout(() => scrollUpRef.current.classList.remove("mouse-success-accent"), 200);
+        } else {
+            scrollDownRef.current.classList.add("mouse-success");
+            scrollDownRef.current.classList.add("mouse-success-accent");
+            setTimeout(() => scrollDownRef.current.classList.remove("mouse-success-accent"), 200);
+        }
     };
 
     //reducer example
@@ -44,21 +70,12 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
                 return { ...state, middleClicks: state.middleClicks + 1 };
             case "MIDDLE_DOUBLE_CLICK":
                 return { ...state, middleDoubleClicks: state.middleDoubleClicks + 1 };
-            case "THUMB1_CLICK":
-                return { ...state, thumb1Clicks: state.thumb1Clicks + 1 };
-            case "THUMB1_DOUBLE_CLICK":
-                return { ...state, thumb1DoubleClicks: state.thumb1DoubleClicks + 1 };
-            case "THUMB2_CLICK":
-                return { ...state, thumb2Clicks: state.thumb2Clicks + 1 };
-            case "THUMB2_DOUBLE_CLICK":
-                return { ...state, thumb2DoubleClicks: state.thumb2DoubleClicks + 1 };
             default:
                 return state;
         }
     };
 
     function checkDoubleClick(clickIndex) {
-
         let now = performance.now();
         switch (clickIndex) {
             case 0:
@@ -82,25 +99,16 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
                 }
                 rightClickTime = rightClickNow;
                 return;
-            case 3:
-                let thumb2ClickNow = now;
-                if (thumb2ClickNow - thumb2ClickTime < doubleClickInterval) {
-                    dispatch({ type: "THUMB2_DOUBLE_CLICK" });
-                }
-                thumb2ClickTime = thumb2ClickNow;
-                return;
-            case 4:
-                let thumb1ClickNow = now;
-                if (thumb1ClickNow - thumb1ClickTime < doubleClickInterval) {
-                    dispatch({ type: "THUMB2_DOUBLE_CLICK" });
-                }
-                thumb1ClickTime = thumb1ClickNow;
-                return;
         }
     }
 
+    const handleContextMenu = (event) => {
+        event.preventDefault();
+    };
+
     const handleClick = (event) => {
         event.preventDefault();
+        mouseLeavesProfiler();
         checkDoubleClick(event.button);
         switch (event.button) {
             case 0:
@@ -117,45 +125,29 @@ function MouseProfiler({ maxCountSize, doubleClickInterval}) {
                 dispatch({ type: "RIGHT_CLICK" });
                 rightClickRef.current.classList.remove("mouse-button");
                 rightClickRef.current.classList.add(state.rightDoubleClicks > 0 ? "mouse-error" : "mouse-success");
-
-                return;
-            case 3:
-                dispatch({ type: "THUMB2_CLICK" });
-                thumb2ClickRef.current.classList.remove("mouse-button");
-                thumb2ClickRef.current.classList.add(state.thumb2DoubleClicks > 0 ? "mouse-error" : "mouse-success");
-
-                return;
-            case 4:
-                dispatch({ type: "THUMB1_CLICK" });
-                thumb1ClickRef.current.classList.remove("mouse-button");
-                thumb1ClickRef.current.classList.add(state.thumb1DoubleClicks > 0 ? "mouse-error" : "mouse-success");
-
                 return;
             default:
                 return console.log("Button not supported!");
         }
-    };
-    const handleContextMenu = (event) => {
-        event.preventDefault();
+        mouseEnterProfiler();
     };
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <div className="mouse-holder" onContextMenu={handleContextMenu} onMouseDown = {handleClick}>
+        <div className="mouse-holder" onContextMenu={handleContextMenu}
+            onMouseDown={handleClick} onMouseEnter={mouseEnterProfiler} onMouseLeave={mouseLeavesProfiler}>
           <img className="mouse-img" src={mouseImg}/>
             <svg className="mouse-overlay" height="500" width="500">
-                <polygon className="mouse-button" ref={leftClickRef} points="57,303,130,231,129,33,56,79"/>
+                <polygon className="mouse-button" ref={leftClickRef} points="57,304,131,232,131,32,56,79"/>
                 <polygon className="mouse-button" ref={rightClickRef} points="257,33,330,79,330,304,257,232"/>
-                <polygon className="mouse-button" ref={thumb1ClickRef} points="24,228,42,228,42,179,25,179"/>
-                <polygon className="mouse-button" ref={thumb2ClickRef} points="41,324,42,273,24,274,24,324" />
                 <polygon className="mouse-button" ref={middleClickRef} points="192,188,204,185,210,177,211,124,205,117,193,114,183,117,177,124,176,176,180,184" />
+                <polygon className="mouse-button" ref={scrollUpRef} points="175,48,210,48,192,17" />
+                <polygon className="mouse-button" ref={scrollDownRef} points="192,284,210,253,175,253" />
             </svg> 
-            <ErrorsCounter normalCount={state.leftClicks} errorCount={state.leftDoubleClicks} maxNumberSpecified={maxCountSize} className="counter counter-left-click"/>
-            <ErrorsCounter normalCount={state.rightClicks} errorCount={state.rightDoubleClicks} maxNumberSpecified={maxCountSize} className="counter counter-right-click"/>
-            <ErrorsCounter normalCount={state.middleClicks} errorCount={state.middleDoubleClicks} maxNumberSpecified={maxCountSize} className="counter counter-middle-click"/>
-            <ErrorsCounter normalCount={state.thumb1Clicks} errorCount={state.thumb1DoubleClicks} maxNumberSpecified={maxCountSize} className="counter counter-thumb1-click"/>
-            <ErrorsCounter normalCount={state.thumb2Clicks} errorCount={state.thumb2DoubleClicks} maxNumberSpecified={maxCountSize} className="counter counter-thumb2-click"/>
+            <ErrorsCounter normalCount={state.leftClicks} errorCount={state.leftDoubleClicks} maxNumberSpecified={maxCountSize} className="counter counter-anim-1 counter-left-click"/>
+            <ErrorsCounter normalCount={state.rightClicks} errorCount={state.rightDoubleClicks} maxNumberSpecified={maxCountSize} className="counter counter-anim-1-2 counter-right-click"/>
+            <ErrorsCounter normalCount={state.middleClicks} errorCount={state.middleDoubleClicks} maxNumberSpecified={maxCountSize} className="counter counter-anim-0-8 counter-middle-click"/>
         </div>
   );
 }
