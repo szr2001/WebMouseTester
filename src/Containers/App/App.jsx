@@ -1,22 +1,11 @@
 import './App.css'
-import { MouseTesterPage } from '../../Containers';
-import { Footer, Navbar, PhoneWarning } from '../../Components';
+import { MainView } from '../../Containers';
+import { PhoneWarning } from '../../Components';
 
-
-const MainView = () => {
-    return (
-        <>
-        <Navbar />
-        <MouseTesterPage />
-        <Footer />
-        </>
-    );
-}
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 function App() {
-    return (
-        window.innerWidth > 600 && window.innerHeight > 600 ? <MainView /> : <PhoneWarning />
-    );
+    return isMobile ? <PhoneWarning /> : <MainView />
 }
 
 export default App;

@@ -13,7 +13,9 @@
 .profiler-detail {
     box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.3);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    text-align:center;
+    vertical-align:central;
     background-color: var(--secondary-color);
     padding: 10px;
     margin: 20px;
@@ -21,12 +23,10 @@
 }
 
 .profiler-result{
-    display:flex;
-    flex-direction:column;
-    flex-wrap:wrap;
     margin:10px;
-    width:30px;
-    height:30px;
+    min-width:30px;
+    align-self:center;
+    min-height:30px;
     border-radius:60px;
 }
 
