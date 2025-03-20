@@ -2,6 +2,7 @@
     background: var(--background-color);
     padding: 8px;
     margin: 0px;
+    max-height:60px;
 }
 
 .footer-desc {
@@ -17,9 +18,9 @@
 .footer-links {
     font-family: var(--primary-font);
     color: var(--text-color);
-    display:flex;
-    gap:40px;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .footer-link {
@@ -28,8 +29,13 @@
     text-decoration: underline;
     color: inherit;
     transition: all 0.3s ease;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
 }
 .footer-link:hover {
-    transform: rotate(5deg);
-    font-weight:bold;
+    transform: rotate(3deg);
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 4px 4px rgba(0,0,0, 0.5);
 }
