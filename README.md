@@ -1,4 +1,4 @@
-# Mouse Tester (Work In Progress)
+# Mouse Tester
 
 Mouse Tester is a web application built with **React + Vite** that visualizes mouse interactions with smooth animations. It tracks **mouse clicks (left, right, middle)** and **scroll events**, providing real-time feedback. The project is deployed on **GitHub Pages**.
 
