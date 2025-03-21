@@ -2,15 +2,15 @@
     background: var(--background-color);
     padding: 8px;
     margin: 0px;
-    max-height:60px;
+    max-height:80px;
+    height:80px;
 }
 
 .footer-desc {
     font-family: var(--primary-font);
     color: var(--text-color);
     text-align:center;
-    padding:0px;
-    padding:2px;
+    padding:5px;
     margin:0px;
     font-size:20px;
 }
@@ -19,23 +19,45 @@
     font-family: var(--primary-font);
     color: var(--text-color);
     display: flex;
-    justify-content: center;
-    text-align: center;
+    margin: 10px;
+    justify-content:center;
 }
 
 .footer-link {
-    margin: 5px;
-    cursor: pointer;
-    text-decoration: underline;
+    margin: 5px 5px 10px 5px;
     color: inherit;
     transition: all 0.3s ease;
-    display: flex;
     cursor: pointer;
-    align-items: center;
 }
-.footer-link:hover {
+
+.footer-link-youtube:hover {
+    transform: rotate(-3deg);
+    font-size: 20px;
+    color: #FF0000; 
+    font-weight: bold;
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.footer-link-linkedin:hover {
+    transform: rotate(-3deg);
+    font-size: 20px;
+    color: #0077B5; 
+    font-weight: bold;
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.footer-link-github:hover {
     transform: rotate(3deg);
     font-size: 20px;
+    color: #808080;
     font-weight: bold;
-    text-shadow: 4px 4px rgba(0,0,0, 0.5);
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.footer-link-discord:hover {
+    transform: rotate(3deg);
+    font-size: 20px;
+    color: #5865F2; 
+    font-weight: bold;
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.5);
 }

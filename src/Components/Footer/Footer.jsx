@@ -5,16 +5,16 @@ function Footer() {
         <div className="footer">
             <h4 className="footer-desc">Free tester for different devices!</h4>
             <div className="footer-links">
-                <div className="footer-link">
+                <div className="footer-link-discord">
                     <a href="https://discord.gg/XYu7B4X2DQ" className="footer-link">Discord</a>
                 </div>
-                <div className="footer-link">
+                <div className="footer-link-youtube">
                     <a href="https://www.youtube.com/c/RoberBot" className="footer-link">Youtube</a>
                 </div>
-                <div className="footer-link">
+                <div className="footer-link-github">
                     <a href="https://github.com/szr2001" className="footer-link">Github</a>
                 </div>
-                <div className="footer-link">
+                <div className="footer-link-linkedin">
                     <a href="https://www.linkedin.com/in/roberbot/" className="footer-link">Linkedin</a>
                 </div>
             </div>
